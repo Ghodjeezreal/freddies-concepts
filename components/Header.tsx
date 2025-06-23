@@ -15,8 +15,8 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [showDesktopServices, setShowDesktopServices] = useState(false) // changed
-  const [showMobileServices, setShowMobileServices] = useState(false)   // changed
+  const [showDesktopServices, setShowDesktopServices] = useState(false)
+  const [showMobileServices, setShowMobileServices] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const [scrolled, setScrolled] = useState(false)
 
@@ -52,13 +52,15 @@ export default function Header() {
             />
           )}
         </Link>
-
         <div className="flex items-center gap-4">
           <nav className="hidden md:flex gap-8 text-sm uppercase tracking-wider">
-            {navLinks.map((link) => (
+            {navLinks.map((link) =>
               link.name === 'Services' ? (
                 <div key={link.name} ref={dropdownRef}>
-                  <button onClick={() => setShowDesktopServices(prev => !prev)} className="hover:text-green-400 transition cursor-pointer">
+                  <button
+                    onClick={() => setShowDesktopServices((prev) => !prev)}
+                    className="hover:text-green-400 transition cursor-pointer"
+                  >
                     SERVICES
                   </button>
                 </div>
@@ -67,9 +69,8 @@ export default function Header() {
                   {link.name}
                 </Link>
               )
-            ))}
+            )}
           </nav>
-
           <button onClick={() => setIsOpen(true)} className="md:hidden space-y-1 cursor-pointer">
             <div className="w-6 h-0.5 bg-white"></div>
             <div className="w-6 h-0.5 bg-white"></div>
@@ -78,7 +79,6 @@ export default function Header() {
           <ThemeToggle />
         </div>
       </div>
-
       {/* Desktop Services Dropdown */}
       <AnimatePresence>
         {showDesktopServices && (
@@ -124,25 +124,39 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-
       {/* Mobile menu */}
-      <div className={`fixed top-0 right-0 w-full max-w-xs h-full bg-black text-white p-10 pt-16 z-40 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'transla[...]`}>
-        <button onClick={() => {
-          setIsOpen(false)
-          setShowMobileServices(false)
-        }} className="absolute top-4 right-4 text-3xl font-bold cursor-pointer" aria-label="Close menu">
+      <div
+        className={`fixed top-0 right-0 w-full max-w-xs h-full bg-black text-white p-10 pt-16 z-40 transform transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <button
+          onClick={() => {
+            setIsOpen(false)
+            setShowMobileServices(false)
+          }}
+          className="absolute top-4 right-4 text-3xl font-bold cursor-pointer"
+          aria-label="Close menu"
+        >
           ×
         </button>
-
         <nav className="flex flex-col gap-6 text-xl">
-          {navLinks.map((link) => (
+          {navLinks.map((link) =>
             link.name === 'Services' ? (
               <div key={link.name} className="space-y-2">
-                <button onClick={() => setShowMobileServices(prev => !prev)} className="text-left w-full flex justify-between items-center hover:text-green-400 transition cursor-pointer">
+                <button
+                  onClick={() => setShowMobileServices((prev) => !prev)}
+                  className="text-left w-full flex justify-between items-center hover:text-green-400 transition cursor-pointer"
+                >
                   <span>Services</span>
-                  <span className={`transform transition-transform duration-300 ${showMobileServices ? 'rotate-45' : 'rotate-0'}`}>+</span>
+                  <span
+                    className={`transform transition-transform duration-300 ${
+                      showMobileServices ? 'rotate-45' : 'rotate-0'
+                    }`}
+                  >
+                    +
+                  </span>
                 </button>
-
                 <AnimatePresence>
                   {showMobileServices && (
                     <motion.div
@@ -169,11 +183,16 @@ export default function Header() {
                 </AnimatePresence>
               </div>
             ) : (
-              <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="hover:text-green-400 transition">
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="hover:text-green-400 transition"
+              >
                 {link.name}
               </Link>
             )
-          ))}
+          )}
         </nav>
       </div>
     </header>
