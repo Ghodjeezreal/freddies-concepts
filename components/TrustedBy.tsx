@@ -17,14 +17,18 @@ export default function TrustedBy() {
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center justify-center">
           {logos.map((logo, i) => (
-            <div key={i} className="mx-auto h-16 w-full flex items-center justify-center">
+            <div
+              key={i}
+              className="relative h-16 max-w-[120px] mx-auto flex items-center"
+              style={{ width: '100%' }}
+            >
               <Image
                 src={logo}
                 alt={`Client ${i + 1}`}
-                width={120}
-                height={64}
-                className="object-contain h-16 grayscale opacity-70 hover:opacity-100 transition duration-300"
-                style={{ width: 'auto', height: '100%' }}
+                fill
+                className="object-contain grayscale opacity-70 hover:opacity-100 transition duration-300"
+                sizes="(max-width: 768px) 50vw, 120px"
+                priority={i === 0}
               />
             </div>
           ))}
