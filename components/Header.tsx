@@ -17,7 +17,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [showDesktopServices, setShowDesktopServices] = useState(false) // changed
   const [showMobileServices, setShowMobileServices] = useState(false)   // changed
-  const dropdownRef = useRef(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !(dropdownRef.current as any).contains(e.target)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setShowDesktopServices(false)
       }
     }
@@ -126,7 +126,7 @@ export default function Header() {
       </AnimatePresence>
 
       {/* Mobile menu */}
-      <div className={`fixed top-0 right-0 w-full max-w-xs h-full bg-black text-white p-10 pt-16 z-40 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed top-0 right-0 w-full max-w-xs h-full bg-black text-white p-10 pt-16 z-40 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'transla[...]`}>
         <button onClick={() => {
           setIsOpen(false)
           setShowMobileServices(false)
