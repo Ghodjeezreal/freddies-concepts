@@ -49,9 +49,7 @@ export default function ContactPage() {
             <span className="text-xs text-gray-500">393 REVIEWS</span>
           </div>
         </section>
-<div className="bg-white dark:bg-black text-black dark:text-white p-4">
-  Dark mode test block
-</div>
+        
         {/* Right section: contact form */}
         <section>
           <form className="flex flex-col gap-5 border border-white/20 p-6 rounded">
