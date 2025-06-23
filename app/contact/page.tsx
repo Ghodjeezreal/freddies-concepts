@@ -4,6 +4,9 @@ import Image from 'next/image'
 
 export default function ContactPage() {
   return (
+    <div className="bg-white dark:bg-black text-black dark:text-white p-4">
+  Dark mode test block
+</div>
     <main className="bg-black text-white min-h-screen py-65 px-4 flex flex-col items-center">
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Left section: info/map */}
