@@ -13,7 +13,7 @@ export default function AboutPage() {
         <p className="text-gray-400 text-lg leading-relaxed">
           As true partners to our clients, we solve problems, not tickets. Our developers,
           strategists, and designers are autonomous, outspoken, collaborative, and love
-          doing the work. We've kept our team small and flat on purpose: that’s how we
+          doing the work. We&apos;ve kept our team small and flat on purpose: that&apos;s how we
           stay nimble, transparent, and human-centric. We are proudly headquartered in Lagos, Nigeria.
         </p>
       </section>
