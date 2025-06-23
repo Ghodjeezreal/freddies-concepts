@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function ContactPage() {
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white p-4">
+    <div className="bg-white dark:bg-black h[100px] text-black dark:text-white p-4">
   Dark mode test block
 </div>
     <main className="bg-black text-white min-h-screen py-65 px-4 flex flex-col items-center">
