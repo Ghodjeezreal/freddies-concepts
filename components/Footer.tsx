@@ -1,13 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
-export default function TailwindDarkTest() {
-  return (
-    <div className="p-8 bg-white text-black dark:bg-black dark:text-white">
-      Tailwind dark mode test block!
-    </div>
-  )
-}
+
 export default function Footer() {
   return (
     <footer className="bg-white dark:bg-black text-gray-800 dark:text-gray-400 px-6 py-10 text-sm">
